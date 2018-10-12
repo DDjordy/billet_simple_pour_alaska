@@ -1,9 +1,10 @@
 <?php
-require('./model/model.php');
- 
+require_once('./model/PostManager.php');
+
 function listPosts()
 {
-	$posts = getPosts();
+	$postManager = new PostManager();
+	$posts = $postManager->getPosts();
 
 	require('./view/listPosts.php');
 }
