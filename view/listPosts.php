@@ -11,12 +11,11 @@
 			while ($post = $posts->fetch()) { ?>
 			<article>
 				<h1><?php echo $post['titre']; ?></h1>
-				<p><?php echo $post['contenu']; ?></p>
-				<button type="button">LIRE LA SUITE</button>
+				<p><?php echo substr($post['contenu'], 1, 800)." ..."; ?></p>
+				<h1 class="articleButton"><a href="#">LIRE LA SUITE</a></h1>
 			</article>
 			<?php 
 		} ?>
-
 		</div>
 	</section>
 

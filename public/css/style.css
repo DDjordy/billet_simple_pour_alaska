@@ -65,16 +65,14 @@ section h1
 	color: #63B0CD;
 }
 
-article button
+.articleButton, a
 {
-	display: block;
-	margin: auto;
-	border-radius: 5px;
-	padding: 10px;
-	background-color: #63B0CD;
-	border: none;
+	text-align: center;
+	text-decoration: none;
 	color: white;
-	font-size: 1em;
+	background-color: #63B0CD;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 /********** Footer **********/
