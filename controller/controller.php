@@ -8,3 +8,11 @@ function listPosts()
 
 	require('./view/listPosts.php');
 }
+
+function post()
+{
+	$postManager = new PostManager();
+	$post = $postManager->post($_GET['ID']);
+
+	require('./view/postView.php');
+}
