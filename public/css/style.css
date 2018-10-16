@@ -50,6 +50,7 @@ header
  	display: flex;
  	flex-wrap: wrap;
  	justify-content: space-around;
+ 	background-color: white;
 }
 
 article
@@ -74,55 +75,27 @@ section h1
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
-/********** User Section **********/
-#userSection
-{
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
- 	justify-content: space-around;
- 	text-align: center;
- 	border-top: 2px solid #63B0CD;
- 	background-color: #63B0CD;
-}
 
-label
-{
-	display: block;
-	width:250px;
-	float: left;
-}
-#userSection input
-{
-	display: block;
-	text-align: center;
-}
-#userSection .submit
-{
-	display: block;
-   	margin : auto;
-   	margin-top: 10px;
-   	background-color: white;
-   	border: 0;
-   	padding: 5px;
-   	border-radius: 5px;
-   	color: #63B0CD;
-}
-#userSection h1
-{
-	color: white;
-}
-
+/********** connection section **********/
 #connection
 {
-
+	width: 100%;
+	text-align: center;
+	-webkit-box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75); 
+	padding: 10px 0px 10px 0px;
 }
-
-#registration
+#connection h1
 {
-
+	width: 100%;
+	color: #63B0CD;
 }
-
+#connection input
+{
+	display: block;
+	margin: auto;
+}
 /********** Footer **********/
 
 footer
