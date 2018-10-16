@@ -9,10 +9,10 @@ function listPosts()
 	require('./view/listPosts.php');
 }
 
-function post()
+function post($ID)
 {
 	$postManager = new PostManager();
-	$post = $postManager->post($_GET['ID']);
+	$post = $postManager->post($ID);
 
 	require('./view/postView.php');
 }

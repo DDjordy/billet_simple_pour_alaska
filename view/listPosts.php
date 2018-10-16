@@ -19,6 +19,7 @@
 		</div>
 	</section>
 
+<?php include('./public/include/userSection.php'); ?>
 <?php include('./public/include/footer.php'); ?>
 </body>
 </html>

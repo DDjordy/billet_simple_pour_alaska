@@ -9,7 +9,7 @@
 
 	    elseif ($_GET['action'] == 'post') {
             if (isset($_GET['ID']) && $_GET['ID'] > 0) {
-                post();
+                post($_GET['ID']);
             }
         }
 	}// Fin de if isset
