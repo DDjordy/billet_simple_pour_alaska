@@ -85,17 +85,45 @@ section h1
 	-moz-box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75);
 	box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75); 
 	padding: 10px 0px 10px 0px;
+	
 }
 #connection h1
 {
 	width: 100%;
 	color: #63B0CD;
 }
-#connection input
+#connection label
 {
 	display: block;
-	margin: auto;
 }
+
+#connection ::placeholder {
+  color: white;
+}
+
+.field
+{
+	margin: auto;
+	height: 20px;
+	text-align: center;
+	border: none;
+	background-color: #63B0CD;
+	color: white;
+}
+
+.button
+{
+	border: 0;
+	padding: 10px;
+	display: block;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #63B0CD;
+	color: white;
+	border-radius: 5px;
+}
+
 /********** Footer **********/
 
 footer
