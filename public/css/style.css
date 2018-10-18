@@ -151,7 +151,7 @@ footer
 }
 /********** Media **********/
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 200px) and (max-width: 720px) {
 	article
 	{
 		width: 90%;
@@ -170,4 +170,19 @@ footer
 	{
 		width: 90%;
 	}
+	#connection label
+	{
+		font-size: 3em;
+	}
+	.field
+	{
+		font-size: 3em;
+		height: 40px;
+	}
+
+	.button
+	{
+		font-size: 3em;
+	}
+
 }

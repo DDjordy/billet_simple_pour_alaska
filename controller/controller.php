@@ -16,3 +16,8 @@ function post($ID)
 
 	require('./view/postView.php');
 }
+
+function registration()
+{
+	require('./view/registration.php');
+}

@@ -7,11 +7,15 @@
 			listPosts();
 		}
 
-	    elseif ($_GET['action'] == 'post') {
+	    if ($_GET['action'] == 'post') {
             if (isset($_GET['ID']) && $_GET['ID'] > 0) {
                 post($_GET['ID']);
             }
         }
+
+       if ($_GET['action'] == 'registration') {
+       		registration();
+            }
 	}// Fin de if isset
 
 	else {
