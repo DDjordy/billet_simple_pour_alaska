@@ -97,7 +97,7 @@ section h1
 	display: block;
 }
 
-#connection ::placeholder {
+::placeholder {
   color: white;
 }
 
@@ -123,7 +123,25 @@ section h1
 	color: white;
 	border-radius: 5px;
 }
+/********** registration section **********/
+#registrationSection
+{
+	width: 100%;
+	text-align: center;
+	-webkit-box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 115px 23px -114px rgba(0,0,0,0.75); 
+	padding: 10px 0px 10px 0px;
+}
+#registrationSection label
+{
+	display: block;
+}
 
+#registrationSection h1
+{
+	color: #63B0CD;
+}
 /********** Footer **********/
 
 footer
