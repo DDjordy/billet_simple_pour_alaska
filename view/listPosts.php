@@ -2,7 +2,6 @@
 <?php include('./public/include/topDoc.php'); ?>
 <?php include('./public/include/header.php'); ?>
 <?php include('./public/include/slider.php'); ?>
-
 	<section>
 		<h1>Les chapitres</h1>
 		<div id="articles">
@@ -18,7 +17,13 @@
 		} ?>
 		</div>
 	</section>
-<?php include('./public/include/connection.php'); ?>
+<?php 
+if (empty($_SESSION['ID'])) {
+	include('./public/include/connection.php'); 
+}?>
+
+
+<?php include('./public/include/footer.php'); ?>
 
 </body>
 </html>

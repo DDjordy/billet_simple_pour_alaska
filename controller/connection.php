@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../model/UserManager.php');
 
 if (isset($_POST['connection'])) {
@@ -14,8 +14,10 @@ if (isset($_POST['connection'])) {
 		$userExist = $reqUser->rowCount();
 
 		if ($userExist == 1) {
-			
-
+			$userInfo = $reqUser->fetch();
+			$_SESSION['ID'] = $userInfo['ID'];
+			$_SESSION['pseudo'] = $userInfo['pseudo'];
+			header("Location: ../index.php?ID=".$_SESSION['ID']);
 		}
 		else
 		{
