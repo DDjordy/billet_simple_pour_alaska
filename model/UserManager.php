@@ -18,5 +18,14 @@
 
 			return $pseudoVerif;
     	}
+
+        public function connection($pseudoConnect, $passwordConnect)
+        {
+            $db = $this->dbConnect();
+            $reqUser = $db->prepare("SELECT * FROM membre WHERE pseudo = ? AND password = ?");
+            $reqUser->execute(array($pseudoConnect, $passwordConnect));
+
+            return $reqUser;
+        }
 	}
 ?>
