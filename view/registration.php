@@ -5,7 +5,7 @@
 
 <div id="registrationSection">
 	<h1>Inscription</h1>
-   <form method="POST" action="./controller/addUser.php">
+   <form method="POST" action="index.php?action=addUser">
    		<label for="pseudo">Pseudonyme :</label>
    		<input  class="field" type="texte" name="pseudo" placeholder="Pseudonyme">
 
