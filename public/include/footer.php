@@ -1,10 +1,10 @@
 	<footer>
-	<?php 
-	if (!empty($_SESSION['pseudo'])) { ?>
+		<?php 
+			if (!empty($_SESSION['ID'])) { ?>
 
-	<p>Bonjour <?php echo $_SESSION['pseudo']; ?></p>
-	<a href="./controller/disconnection.php">déconnexion</a>
-	<?php } ?>
+			<p>Bonjour <?php echo $_SESSION['pseudo']; ?></p>
+			<a href="index.php?action=disconnection">déconnexion</a>
+		<?php } ?>
 
 
 	</footer>

@@ -2,11 +2,10 @@
 require_once('./model/PostManager.php');
 require_once('./model/UserManager.php');
 
-function listPosts()
+function listPosts() 
 {
 	$postManager = new PostManager();
 	$posts = $postManager->getPosts();
-
 	require('./view/listPosts.php');
 }
 
@@ -14,7 +13,6 @@ function post($ID)
 {
 	$postManager = new PostManager();
 	$post = $postManager->post($ID);
-
 	require('./view/postView.php');
 }
 
@@ -40,3 +38,19 @@ function addUser($pseudo, $password)
   		exit();
 	}
 }
+
+function connection($pseudo,$password)
+{
+	$userManager = new UserManager();
+	$reqUser = $userManager->connection($pseudo, sha1($password));
+	$userExist = $reqUser->rowCount();
+		
+	if ($userExist == 1) {
+		$userInfo = $reqUser->fetch();
+		$_SESSION['ID'] = $userInfo['ID'];
+		$_SESSION['pseudo'] = $userInfo['pseudo'];
+		header("Location: index.php?ID=".$_SESSION['ID']);
+				}
+				else{ echo "Pseudo ou mot de passe incorrect";}
+}
+

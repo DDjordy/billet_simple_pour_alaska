@@ -28,6 +28,17 @@ session_start();
 				}
 			}
         }
+        if ($_GET['action'] == 'connection') {
+        	if (!empty($_POST['pseudoConnect']) AND !empty($_POST['passwordConnect'])){
+        		connection($_POST['pseudoConnect'],$_POST['passwordConnect']);
+        	}
+        }
+
+        if ($_GET['action'] == 'disconnection') {
+        	session_start();
+			session_destroy();
+			header('Location: index.php');
+        }
 	}// Fin de if isset
 
 	else {

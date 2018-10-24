@@ -1,6 +1,6 @@
 <div id="connection">
 	<h1>Connexion</h1>
-	<form method="post" action="./controller/connection.php">
+	<form method="post" action="index.php?action=connection">
 		<label for="pseudo">Pseudonyme :</label>
 		<input  class="field" type="text" name="pseudoConnect" placeholder="Pseudonyme">
 

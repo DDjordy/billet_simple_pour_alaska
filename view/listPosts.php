@@ -13,8 +13,7 @@
 				<p><?php echo substr($post['contenu'], 1, 800)." ..."; ?></p>
 				<h1 class="articleButton"><a href="index.php?action=post&amp;ID=<?php echo($post['ID'])?>">LIRE LA SUITE</a></h1>
 			</article>
-			<?php 
-		} ?>
+			<?php } ?>
 		</div>
 	</section>
 <?php 
