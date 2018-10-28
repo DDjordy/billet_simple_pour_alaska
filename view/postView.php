@@ -14,6 +14,13 @@
 		</div>
     </section>
 
+
+
+<?php include('./public/include/comment.php'); ?>
+<?php include('./public/include/footer.php'); ?>
+</body>
+</html>
+<!--
     <div id="comment">
 		<p><strong>Decroix Djordy :</strong>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500<br/>
 		Le 16/10/2018 à 09H32 | <span class="red">Signaler ce commentaire </span>
@@ -24,8 +31,4 @@
 		Le 16/10/2018 à 09H32 | <span class="red">Signaler ce commentaire </span>
 	</p>
 	</div>
-
-
-<?php include('./public/include/footer.php'); ?>
-</body>
-</html>
+->

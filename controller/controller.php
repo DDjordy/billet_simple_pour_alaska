@@ -1,6 +1,7 @@
 <?php
 require_once('./model/PostManager.php');
 require_once('./model/UserManager.php');
+require_once('./model/CommentManager.php');
 
 function listPosts() 
 {
@@ -54,3 +55,8 @@ function connection($pseudo,$password)
 				else{ echo "Pseudo ou mot de passe incorrect";}
 }
 
+function postComment($comment,$articleId,$userId)
+{
+	$commentManager = new commentManager();
+	$req = $commentManager->postComment($comment,$articleId,$userId);
+}

@@ -11,7 +11,7 @@ session_start();
 	    if ($_GET['action'] == 'post') {
             if (isset($_GET['ID']) && $_GET['ID'] > 0) {
                 post($_GET['ID']);
-            }
+            } 
         }
 
        if ($_GET['action'] == 'registration') {
@@ -38,6 +38,23 @@ session_start();
         	session_start();
 			session_destroy();
 			header('Location: index.php');
+        }
+
+        if ($_GET['action'] == 'postComment') {
+        	if (!empty($_POST['comment']) && isset($_POST['comment'])) {
+        		if (isset($_GET['ID']) && isset($_SESSION['ID'])) {
+
+     				postComment(htmlspecialchars($_POST['comment']),$_GET['ID'],$_SESSION['ID']);
+
+        		} else
+        		{
+        			echo "Merci de vous connecter";
+        		} 		
+        	}
+        	else
+        	{
+        		echo "Tous les champs ne sont pas remplis";
+        	}
         }
 	}// Fin de if isset
 
