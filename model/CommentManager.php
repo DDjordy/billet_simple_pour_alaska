@@ -10,4 +10,14 @@
     		$ins->execute(array($comment,$userId,$articleId));
     	}
 
+    	public function listComment($articleId)
+    	{
+    		$db = $this->dbConnect();
+    		$req = $db->prepare('SELECT * FROM commentaire WHERE articleID = ?');
+    		$req->execute(array($articleId));
+
+			$commentaire = $req->fetch();
+    		return $commentaire;
+    	}
+
 	}

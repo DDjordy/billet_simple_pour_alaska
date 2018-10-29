@@ -60,3 +60,9 @@ function postComment($comment,$articleId,$userId)
 	$commentManager = new commentManager();
 	$req = $commentManager->postComment($comment,$articleId,$userId);
 }
+
+function listComment($articleId)
+{
+	$commentManager = new commentManager();
+	$req = $commentManager->listComment($articleId);
+}

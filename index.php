@@ -10,6 +10,8 @@ session_start();
 
 	    if ($_GET['action'] == 'post') {
             if (isset($_GET['ID']) && $_GET['ID'] > 0) {
+
+            	listComment($_GET['ID']);
                 post($_GET['ID']);
             } 
         }

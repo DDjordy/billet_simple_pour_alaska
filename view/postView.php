@@ -14,9 +14,13 @@
 		</div>
     </section>
 
+<?php echo $commentaire['contenu']; ?>
+<?php
+if (!empty($_SESSION['ID'])) {
+	include('./public/include/comment.php');
+}
+?>
 
-
-<?php include('./public/include/comment.php'); ?>
 <?php include('./public/include/footer.php'); ?>
 </body>
 </html>
