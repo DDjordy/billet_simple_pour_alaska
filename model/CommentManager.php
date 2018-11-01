@@ -13,11 +13,14 @@
     	public function listComment($articleId)
     	{
     		$db = $this->dbConnect();
-    		$req = $db->prepare('SELECT * FROM commentaire WHERE articleID = ?');
+    		$req = $db->prepare('SELECT commentaire.date, commentaire.contenu, membre.pseudo 
+            FROM commentaire 
+            INNER JOIN membre 
+            ON commentaire.membreID = membre.ID
+            WHERE commentaire.articleID = ?');
     		$req->execute(array($articleId));
 
-			$commentaire = $req->fetch();
-    		return $commentaire;
+    		return $req;
     	}
 
 	}

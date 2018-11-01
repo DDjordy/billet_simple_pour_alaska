@@ -14,7 +14,23 @@
 		</div>
     </section>
 
-<?php echo $commentaire['contenu']; ?>
+
+<?php 
+while ($donnée = $req->fetch())
+	{
+?>
+		<div id="comment">
+		<p><strong><?php echo $donnée['pseudo']; ?> :</strong><?php echo $donnée['contenu']; ?><br/>
+		<?php echo $donnée['date']; ?> | <span class="red">Signaler ce commentaire </span>
+		</p>
+		</div>
+<?php
+	}
+?>
+
+
+
+
 <?php
 if (!empty($_SESSION['ID'])) {
 	include('./public/include/comment.php');

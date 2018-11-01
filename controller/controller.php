@@ -14,6 +14,10 @@ function post($ID)
 {
 	$postManager = new PostManager();
 	$post = $postManager->post($ID);
+
+	$commentManager = new commentManager();
+	$req = $commentManager->listComment($ID);
+
 	require('./view/postView.php');
 }
 
@@ -50,7 +54,7 @@ function connection($pseudo,$password)
 		$userInfo = $reqUser->fetch();
 		$_SESSION['ID'] = $userInfo['ID'];
 		$_SESSION['pseudo'] = $userInfo['pseudo'];
-		header("Location: index.php?ID=".$_SESSION['ID']);
+		header("Location: index.php");
 				}
 				else{ echo "Pseudo ou mot de passe incorrect";}
 }
@@ -59,10 +63,7 @@ function postComment($comment,$articleId,$userId)
 {
 	$commentManager = new commentManager();
 	$req = $commentManager->postComment($comment,$articleId,$userId);
+
+	header("Location: index.php?action=post&ID=$articleId");
 }
 
-function listComment($articleId)
-{
-	$commentManager = new commentManager();
-	$req = $commentManager->listComment($articleId);
-}
