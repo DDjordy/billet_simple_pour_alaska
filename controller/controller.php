@@ -67,3 +67,11 @@ function postComment($comment,$articleId,$userId)
 	header("Location: index.php?action=post&ID=$articleId");
 }
 
+function reportComment($articleId, $commentId)
+{
+	$commentManager = new commentManager();
+	$req = $commentManager->reportComment($commentId);
+
+	header("Location: index.php?action=post&ID=$articleId");
+}
+

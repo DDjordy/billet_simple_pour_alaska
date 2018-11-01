@@ -57,6 +57,14 @@ session_start();
         		echo "Tous les champs ne sont pas remplis";
         	}
         }
+
+        if ($_GET['action'] == 'report') 
+        {
+        	if (isset($_SESSION['ID']))
+        	{
+        		reportComment($_GET['ID'], $_GET['commentaireID']);
+        	}
+        }
 	}// Fin de if isset
 
 	else {

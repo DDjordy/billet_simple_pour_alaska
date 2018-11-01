@@ -21,7 +21,7 @@ while ($donnée = $req->fetch())
 ?>
 		<div id="comment">
 		<p><strong><?php echo $donnée['pseudo']; ?> :</strong><?php echo $donnée['contenu']; ?><br/>
-		<?php echo $donnée['date']; ?> | <span class="red">Signaler ce commentaire </span>
+		<?php echo $donnée['date']; ?> | <a class="red" href="index.php?action=report&ID=<?php echo($_GET['ID']) ?>&commentaireID=<?php echo $donnée['ID']; ?>">Signaler ce commentaire </a>
 		</p>
 		</div>
 <?php
@@ -40,15 +40,3 @@ if (!empty($_SESSION['ID'])) {
 <?php include('./public/include/footer.php'); ?>
 </body>
 </html>
-<!--
-    <div id="comment">
-		<p><strong>Decroix Djordy :</strong>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500<br/>
-		Le 16/10/2018 à 09H32 | <span class="red">Signaler ce commentaire </span>
-	</p>
-	</div>
-    <div id="comment">
-		<p><strong>Decroix Djordy :</strong>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.<br/>
-		Le 16/10/2018 à 09H32 | <span class="red">Signaler ce commentaire </span>
-	</p>
-	</div>
-->

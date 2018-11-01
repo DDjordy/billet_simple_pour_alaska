@@ -13,7 +13,7 @@
     	public function listComment($articleId)
     	{
     		$db = $this->dbConnect();
-    		$req = $db->prepare('SELECT commentaire.date, commentaire.contenu, membre.pseudo 
+    		$req = $db->prepare('SELECT commentaire.date, commentaire.contenu, commentaire.ID, membre.pseudo 
             FROM commentaire 
             INNER JOIN membre 
             ON commentaire.membreID = membre.ID
@@ -23,4 +23,14 @@
     		return $req;
     	}
 
-	}
+        public function reportComment($commentId)
+        {
+            $db = $this->dbConnect();
+            $req = $db->prepare('UPDATE commentaire SET signalement = signalement + :nvSignalement WHERE ID = :idComment');
+            $req->execute(array(
+                'nvSignalement' => 1,
+                'idComment' => $commentId
+                ));
+
+	    }
+    }
