@@ -2,6 +2,7 @@
 require_once('./model/PostManager.php');
 require_once('./model/UserManager.php');
 require_once('./model/CommentManager.php');
+require_once('./model/AdminManager.php');
 
 function listPosts() 
 {
@@ -54,6 +55,7 @@ function connection($pseudo,$password)
 		$userInfo = $reqUser->fetch();
 		$_SESSION['ID'] = $userInfo['ID'];
 		$_SESSION['pseudo'] = $userInfo['pseudo'];
+		$_SESSION['autorisation'] = $userInfo['autorisation'];
 		header("Location: index.php");
 				}
 				else{ echo "Pseudo ou mot de passe incorrect";}
@@ -75,3 +77,16 @@ function reportComment($articleId, $commentId)
 	header("Location: index.php?action=post&ID=$articleId");
 }
 
+function admin()
+{
+
+	$postManager = new PostManager();
+	$posts = $postManager->getPosts();
+
+	require('./view/admin.php');
+}
+function deleteArticle($IdArticle)
+{
+	$AdminManager = new AdminManager();
+	$req = $AdminManager->AdminManager($IdArticle);
+}

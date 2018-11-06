@@ -65,6 +65,18 @@ session_start();
         		reportComment($_GET['ID'], $_GET['commentaireID']);
         	}
         }
+
+        if ($_GET['action'] == 'admin') {
+        	if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+	        	admin();
+        	}
+        }
+
+        if ($_GET['action'] == 'deleteArticle') {
+        	if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+	        	deleteArticle($_GET['IdArticle']);
+        	}
+        }
 	}// Fin de if isset
 
 	else {

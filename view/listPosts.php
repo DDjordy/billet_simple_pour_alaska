@@ -16,6 +16,7 @@
 			<?php } ?>
 		</div>
 	</section>
+
 <?php 
 if (empty($_SESSION['ID'])) {
 	include('./public/include/connection.php'); 
