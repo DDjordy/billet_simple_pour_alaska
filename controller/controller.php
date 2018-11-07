@@ -100,3 +100,22 @@ function addArticle($title, $content)
 
 	header("Location: index.php?action=admin");
 }
+
+function editArticle($IdArticle)
+{
+	$postManager = new PostManager();
+	$posts = $postManager->getPosts();
+
+	$postManager = new PostManager();
+	$editArticle = $postManager->post($IdArticle);
+
+	require('./view/admin.php');
+}
+
+function upArticle($title, $content, $IdArticle)
+{
+	$adminManager = new AdminManager();
+	$req = $adminManager->upArticle($title, $content, $IdArticle);
+
+	header("Location: index.php?action=admin");
+}

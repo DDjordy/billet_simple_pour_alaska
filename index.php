@@ -83,11 +83,26 @@ session_start();
         		if (!empty($_POST['title']) && !empty($_POST['content'])) {
 
         			addArticle($_POST['title'], $_POST['content']);
-        			
-        		}else { echo "non";}
-        	}else { echo "non";}
+        		}
+        	}
         }
-        else { echo "non";}
+        
+        if ($_GET['action'] == 'editArticle') {
+        	if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+
+        			editArticle($_GET['IdArticle']);
+        		
+        	}
+        }
+
+        if ($_GET['action'] == 'upArticle') {
+        	if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+
+        			upArticle($_POST['title'], $_POST['content'], $_GET['IdArticle']);
+        		
+        	}
+        }
+
 	}// Fin de if isset
 
 	else {

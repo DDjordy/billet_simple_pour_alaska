@@ -21,5 +21,16 @@
 			'content' => $content
 			));
     	}
+
+    	public function upArticle($title, $content, $IdArticle)
+    	{
+			$db = $this->dbConnect();
+    		$req = $db->prepare('UPDATE article SET titre = :nvTitre, contenu = :nvContenu WHERE ID = :ID');
+			$req->execute(array(
+				'nvTitre' => $title,
+				'nvContenu' => $content,
+				'ID' => $IdArticle
+		));
+    	}
 	}
 ?>
