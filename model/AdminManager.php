@@ -3,11 +3,14 @@
 
 	class AdminManager extends Manager
 	{
-    	public function deleteArticle()
+    	public function deleteArticle($IdArticle)
     	{
     		$db = $this->dbConnect();
-    		$req = $db->query('SELECT * FROM article');
-    		return $req;
+			$req = $db->prepare('DELETE fROM article WHERE ID = :IdArticle');
+			$req->execute(array(
+			'IdArticle' => $IdArticle
+			));
+
     	}
 	}
 ?>

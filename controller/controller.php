@@ -87,6 +87,8 @@ function admin()
 }
 function deleteArticle($IdArticle)
 {
-	$AdminManager = new AdminManager();
-	$req = $AdminManager->AdminManager($IdArticle);
+	$adminManager = new AdminManager();
+	$req = $adminManager->deleteArticle($IdArticle);
+
+	header("Location: index.php?action=admin");
 }
