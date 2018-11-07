@@ -28,7 +28,7 @@
        <td class="addArticle">Ajouter un article</td>
    </tr>
 </table>
-
+  <textarea class="tinymce"></textarea>
 			
 	</div>
 
@@ -38,9 +38,12 @@
 	</div>
 
 
-
-
 <?php include('./public/include/footer.php'); ?>
- 
+
+      <script type="text/javascript" src="./public/js/jquery.min.js"></script>
+      <script type="text/javascript" src="./public/plugin/tinymce/tinymce.min.js"></script>
+      <script type="text/javascript" src="./public/plugin/tinymce/init-tinymce.js"></script>
+  
+
 </body>
 </html>
