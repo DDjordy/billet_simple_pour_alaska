@@ -77,6 +77,17 @@ session_start();
 	        	deleteArticle($_GET['IdArticle']);
         	}
         }
+
+        if ($_GET['action'] == 'addArticle') {
+        	if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+        		if (!empty($_POST['title']) && !empty($_POST['content'])) {
+
+        			addArticle($_POST['title'], $_POST['content']);
+        			
+        		}else { echo "non";}
+        	}else { echo "non";}
+        }
+        else { echo "non";}
 	}// Fin de if isset
 
 	else {

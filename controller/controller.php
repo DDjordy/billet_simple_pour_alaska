@@ -92,3 +92,11 @@ function deleteArticle($IdArticle)
 
 	header("Location: index.php?action=admin");
 }
+
+function addArticle($title, $content)
+{
+	$adminManager = new AdminManager();
+	$req = $adminManager->addArticle($title, $content);
+
+	header("Location: index.php?action=admin");
+}

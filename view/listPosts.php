@@ -10,7 +10,7 @@
 			while ($post = $posts->fetch()) { ?>
 			<article>
 				<h1><?php echo $post['titre']; ?></h1>
-				<p><?php echo substr($post['contenu'], 1, 800)." ..."; ?></p>
+				<?php echo substr($post['contenu'], 0, 800); ?>
 				<h1 class="articleButton"><a href="index.php?action=post&amp;ID=<?php echo($post['ID'])?>">LIRE LA SUITE</a></h1>
 			</article>
 			<?php } ?>
