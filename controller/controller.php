@@ -83,6 +83,9 @@ function admin()
 	$postManager = new PostManager();
 	$posts = $postManager->getPosts();
 
+	$adminManager = new AdminManager();
+	$reportComments = $adminManager->reportComment();
+
 	require('./view/admin.php');
 }
 function deleteArticle($IdArticle)
@@ -119,3 +122,23 @@ function upArticle($title, $content, $IdArticle)
 
 	header("Location: index.php?action=admin");
 }
+
+
+function deleteComment($idComment)
+{
+	$adminManager = new AdminManager();
+	$req = $adminManager->deleteComment($idComment);
+
+	header("Location: index.php?action=admin");
+}
+
+
+function acceptComment($idComment)
+{
+	$adminManager = new AdminManager();
+	$req = $adminManager->acceptComment($idComment);
+
+	header("Location: index.php?action=admin");
+}
+
+?>

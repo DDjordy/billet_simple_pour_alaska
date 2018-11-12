@@ -211,6 +211,7 @@ h1
 	border-collapse: collapse;
 	margin: auto;
 	color: black;
+	margin-bottom: 50px;
 
 }
 #adminArticle td
@@ -236,6 +237,17 @@ h1
 	width: 50%;
 	margin: auto;
 	text-align: center;
+}
+
+#reportcomments
+{
+	width: 90%;
+	text-align: center;
+	border-collapse: collapse;
+	margin: auto;
+	color: black;
+	margin-bottom: 50px;
+
 }
 /********** Media **********/
 

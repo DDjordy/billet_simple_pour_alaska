@@ -99,8 +99,21 @@ session_start();
         	if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
 
         			upArticle($_POST['title'], $_POST['content'], $_GET['IdArticle']);
-        		
         	}
+        }
+
+        if ($_GET['action'] == 'deleteComment') {
+            if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+
+                   deleteComment($_GET['idComment']);
+            }
+        }
+
+        if ($_GET['action'] == 'acceptComment') {
+            if (isset($_SESSION['ID']) && $_SESSION['autorisation'] == 2) {
+
+                  acceptComment($_GET['idComment']);
+            }
         }
 
 	}// Fin de if isset
