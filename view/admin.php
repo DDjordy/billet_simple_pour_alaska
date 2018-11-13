@@ -68,6 +68,25 @@
    <?php } ?>
 </table>
 
+	<div id="adminComment">
+		<h1>Les commentaires</h1>	
+	</div>
+
+<table id="reportcomments">
+   <tr>
+       <th>Date</th>
+       <th>Contenu</th>
+       <th>Supprimer</th>
+   </tr>
+
+   <?php while ($comment = $comments->fetch()) { ?>
+	   <tr>
+	       <td><?php echo $comment['date']; ?></td>
+	       <td><?php echo substr($comment['contenu'], 0, 100); ?></td>
+	       <td class="delete"><a href="index.php?action=deleteComment&idComment=<?php echo($comment['ID']) ?>">X</a></td>
+	   </tr> 
+   <?php } ?>
+</table>
 
 <?php include('./public/include/footer.php'); ?>
 

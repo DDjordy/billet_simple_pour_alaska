@@ -249,6 +249,26 @@ h1
 	margin-bottom: 50px;
 
 }
+
+/********** error **********/
+
+#errorDiv
+{
+ width: 50%;
+ margin: auto;
+ text-align: center;
+ height: 50%;
+ position: absolute;
+ top: 25%;
+ left: 25%;
+}
+
+#errorDiv a
+{
+	text-align: center;
+	text-decoration: none;
+	color: #fe6b6b;
+}
 /********** Media **********/
 
 @media screen and (min-width: 200px) and (max-width: 720px) {

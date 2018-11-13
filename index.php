@@ -2,9 +2,10 @@
 session_start();
 	require('./controller/controller.php');
 
-	if (isset($_GET['action'])) {
-
-		if ($_GET['action'] == 'listPosts') {
+	if (isset($_GET['action'])) 
+    {
+		if ($_GET['action'] == 'listPosts') 
+        {
 			listPosts();
 		}
 
@@ -19,20 +20,53 @@ session_start();
        		registration();
             }
 
+
+
+
         if($_GET['action'] == 'addUser') {
-        	if (!empty($_POST['pseudo']) AND !empty($_POST['password']) AND !empty($_POST['passwordConfirm'])) {
-					$pseudoLength = strlen($_POST['pseudo']);
-						if ($pseudoLength <= 255) {
-							if ($_POST['password'] == $_POST['passwordConfirm']) { 
-							addUser($_POST['pseudo'],$_POST['password']);
-					}
-				}
-			}
+            try {
+            	if (!empty($_POST['pseudo']) AND !empty($_POST['password']) AND !empty($_POST['passwordConfirm'])) 
+                {
+    				$pseudoLength = strlen($_POST['pseudo']);
+                    try {
+    						if ($pseudoLength <= 255) 
+                            {
+                                try {
+            						if ($_POST['password'] == $_POST['passwordConfirm']) 
+                                        { 
+            							 addUser($_POST['pseudo'],$_POST['password']);
+                                        }
+                                        else
+                                        { throw new Exception('Les mots de passe ne correspondent pas'); }
+                                    }
+                                    catch (Exception $e)
+                                    { header('Location: index.php?action=erreur&message='.$e->getMessage());}
+                            }
+                            else
+                            { throw new Exception('Votre pseudo ne doit pas dépasser 255 caractéres'); }
+                        }
+                        catch (Exception $e)
+                        { header('Location: index.php?action=erreur&message='.$e->getMessage());}
+    			}
+                else
+                    { throw new Exception('Tous les champs ne sont pas remplis'); }
+                }
+                catch (Exception $e)
+                { header('Location: index.php?action=erreur&message='.$e->getMessage());}
+
         }
+
         if ($_GET['action'] == 'connection') {
-        	if (!empty($_POST['pseudoConnect']) AND !empty($_POST['passwordConnect'])){
-        		connection($_POST['pseudoConnect'],$_POST['passwordConnect']);
-        	}
+            try 
+            {
+            	if (!empty($_POST['pseudoConnect']) AND !empty($_POST['passwordConnect'])){
+            		connection($_POST['pseudoConnect'],$_POST['passwordConnect']);
+            	}
+                else
+                { throw new Exception('Tous les champs ne sont pas remplis'); }
+            }
+            catch (Exception $e)
+            { header('Location: index.php?action=erreur&message='.$e->getMessage());}
         }
 
         if ($_GET['action'] == 'disconnection') {
@@ -42,21 +76,29 @@ session_start();
         }
 
         if ($_GET['action'] == 'postComment') {
-        	if (!empty($_POST['comment']) && isset($_POST['comment'])) {
-        		if (isset($_GET['ID']) && isset($_SESSION['ID'])) {
+            try 
+            {
+            	if (!empty($_POST['comment']) && isset($_POST['comment'])) {
+                    try
+                    {
+                		if (isset($_GET['ID']) && isset($_SESSION['ID'])) {
 
-     				postComment(htmlspecialchars($_POST['comment']),$_GET['ID'],$_SESSION['ID']);
+             				postComment(htmlspecialchars($_POST['comment']),$_GET['ID'],$_SESSION['ID']);
 
-        		} else
-        		{
-        			echo "Merci de vous connecter";
-        		} 		
-        	}
-        	else
-        	{
-        		echo "Tous les champs ne sont pas remplis";
-        	}
+                		} 
+                        else
+                		{ throw new Exception('Vous n\'etes pas connecté'); }	
+                    }
+                    catch (Exception $e)
+                    { header('Location: index.php?action=erreur&message='.$e->getMessage());}
+            	}
+            	else
+            	{ throw new Exception('Tous les champs ne sont pas remplis'); }
+            }
+            catch (Exception $e)
+            { header('Location: index.php?action=erreur&message='.$e->getMessage());}
         }
+
 
         if ($_GET['action'] == 'report') 
         {
@@ -114,6 +156,10 @@ session_start();
 
                   acceptComment($_GET['idComment']);
             }
+        }
+
+        if ($_GET['action'] == 'erreur') {
+            error();
         }
 
 	}// Fin de if isset

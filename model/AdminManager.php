@@ -10,6 +10,11 @@
 			$req->execute(array(
 			'IdArticle' => $IdArticle
 			));
+
+			$req = $db->prepare('DELETE FROM commentaire WHERE articleID = :IdArticle');
+			$req->execute(array(
+			'IdArticle' => $IdArticle
+			));
     	}
 
     	public function addArticle($title, $content)
@@ -38,6 +43,16 @@
 	        $db = $this->dbConnect();
 	        $req = $db->prepare('SELECT * FROM commentaire WHERE signalement >= ?');
 	        $req->execute(array(1));
+
+	        return $req;
+    	}
+
+
+    	public function Comment()
+   		{
+	        $db = $this->dbConnect();
+	        $req = $db->prepare('SELECT * FROM commentaire WHERE signalement = ?');
+	        $req->execute(array(0));
 
 	        return $req;
     	}
